@@ -4,9 +4,7 @@ import android.annotation.SuppressLint
 import android.app.admin.DevicePolicyManager
 import android.content.Context
 import android.content.Intent
-import android.os.Build
-import android.os.Bundle
-import android.os.Vibrator
+import android.os.*
 import android.provider.Settings
 import android.util.Log
 import android.view.*
@@ -73,6 +71,7 @@ class HomeFragment : Fragment(), View.OnClickListener, View.OnLongClickListener 
     }
 
     override fun onClick(view: View) {
+        view.performHapticFeedback(HapticFeedbackConstants.CONTEXT_CLICK)
         when (view.id) {
             R.id.lock -> { }
             R.id.clock -> openClickClockApp()
@@ -91,6 +90,7 @@ class HomeFragment : Fragment(), View.OnClickListener, View.OnLongClickListener 
     }
 
     override fun onLongClick(view: View): Boolean {
+        view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
         val n = view.id
         val (name, _, _, _) = prefs.getHomeAppValues(n)
         showAppList(Constants.FLAG_SET_HOME_APP, name.isNotEmpty(), true, n)
