@@ -26,22 +26,24 @@ object Constants {
 
     enum class Language {
         System,
+        Chinese,
         English,
-        Deutsch,
-        Spanish,
         French,
+        German,
+        Greek,
         Italian,
+        Persian,
+        Portuguese,
+        Spanish,
         Swedish,
         Turkish,
-        Greek,
-        Chinese
     }
 
     fun Language.value(): String {
         return when(this) {
             Language.System -> Locale(Locale.getDefault().language).toString()
             Language.English -> "en"
-            Language.Deutsch -> "de"
+            Language.German -> "de"
             Language.Spanish -> "es"
             Language.French -> "fr"
             Language.Italian -> "it"
@@ -49,6 +51,8 @@ object Constants {
             Language.Turkish -> "tr"
             Language.Greek -> "gr"
             Language.Chinese -> "cn"
+            Language.Persian -> "fa"
+            Language.Portuguese -> "pt"
         }
     }
 
